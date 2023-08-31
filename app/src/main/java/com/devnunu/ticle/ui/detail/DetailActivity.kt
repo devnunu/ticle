@@ -3,6 +3,7 @@ package com.devnunu.ticle.ui.detail
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.base.BaseActivity
 
 class DetailActivity :
@@ -13,7 +14,10 @@ class DetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DetailScreen(viewModel = viewModel)
+            DetailScreen(
+                state = viewModel.state.collectAsState().value,
+                onEvent = viewModel::onEvent
+            )
         }
         intent.getLongExtra(PARAM_BUDGET, 0L).let {
             viewModel.setBudget(it)
