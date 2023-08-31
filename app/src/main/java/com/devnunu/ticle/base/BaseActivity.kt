@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-abstract class BaseActivity<STATE, SIDE_EFFECT, VIEW_MODEL : BaseViewModel<STATE, SIDE_EFFECT>>
+abstract class BaseActivity<STATE, SIDE_EFFECT, VIEW_EVENT, VIEW_MODEL : BaseViewModel<STATE, SIDE_EFFECT, VIEW_EVENT>>
     : AppCompatActivity(), BaseUi<VIEW_MODEL> {
 
     override fun onCreate(savedInstanceState: Bundle?) {

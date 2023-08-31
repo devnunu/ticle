@@ -7,9 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.devnunu.ticle.base.BaseActivity
 import com.devnunu.ticle.base.BaseUi
+import com.devnunu.ticle.base.EmptyState
 import com.devnunu.ticle.ui.detail.DetailActivity
 
-class MainActivity : BaseActivity<MainState, MainSideEffect, MainViewModel>() {
+class MainActivity
+    : BaseActivity<EmptyState, MainSideEffect, MainViewEvent, MainViewModel>() {
 
     override val viewModel: MainViewModel by viewModels()
 
@@ -17,7 +19,7 @@ class MainActivity : BaseActivity<MainState, MainSideEffect, MainViewModel>() {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreen(
-                viewModel = viewModel
+                onEvent = viewModel::onEvent
             )
         }
     }

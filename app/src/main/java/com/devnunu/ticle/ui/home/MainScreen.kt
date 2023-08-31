@@ -13,13 +13,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.components.TicleButton
 import com.devnunu.ticle.components.TicleInput
 
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel
+    onEvent: (MainViewEvent) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -53,9 +54,17 @@ fun MainScreen(
             buttonText = "다음",
             onClickButton = {
                 budget?.let {
-                    viewModel.onClickNextBtn(it)
+                    onEvent(MainViewEvent.ClickNextBtn(it))
                 }
             }
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainScreenPreview() {
+    MainScreen(
+        onEvent = {}
+    )
 }

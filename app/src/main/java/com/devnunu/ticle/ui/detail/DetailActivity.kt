@@ -5,7 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.devnunu.ticle.base.BaseActivity
 
-class DetailActivity : BaseActivity<DetailState, DetailSideEffect, DetailViewModel>() {
+class DetailActivity :
+    BaseActivity<DetailState, DetailSideEffect, DetailViewEvent, DetailViewModel>() {
 
     override val viewModel: DetailViewModel by viewModels()
 

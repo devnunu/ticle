@@ -1,13 +1,18 @@
 package com.devnunu.ticle.ui.home
 
 import com.devnunu.ticle.base.BaseViewModel
+import com.devnunu.ticle.base.EmptyState
 
 class MainViewModel(
-    initialState: MainState = MainState()
-) : BaseViewModel<MainState, MainSideEffect>(initialState) {
+    initialState: EmptyState = EmptyState()
+) : BaseViewModel<EmptyState, MainSideEffect, MainViewEvent>(initialState) {
 
-    fun onClickNextBtn(budget: Long) {
-        val budget = budget * 10000
-        postSideEffect(MainSideEffect.StartDetailActivity(budget = budget))
+    override fun onEvent(event: MainViewEvent) {
+        when (event) {
+            is MainViewEvent.ClickNextBtn -> {
+                val budget = event.budget * 10000
+                postSideEffect(MainSideEffect.StartDetailActivity(budget = budget))
+            }
+        }
     }
 }

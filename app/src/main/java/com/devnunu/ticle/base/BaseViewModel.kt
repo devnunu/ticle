@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-open class BaseViewModel<STATE, SIDE_EFFECT>(
+open class BaseViewModel<STATE, SIDE_EFFECT, EVENT>(
     initialState: STATE
 ) : ViewModel() {
 
@@ -35,4 +35,6 @@ open class BaseViewModel<STATE, SIDE_EFFECT>(
     fun postSideEffect(sideEffect: SIDE_EFFECT) {
         _sideEffects.tryEmit(sideEffect)
     }
+
+    open fun onEvent(event: EVENT) {}
 }
