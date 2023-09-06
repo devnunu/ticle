@@ -1,14 +1,12 @@
-package com.devnunu.ticle.ui.home
+package com.devnunu.ticle.presentation.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import com.devnunu.ticle.base.BaseActivity
-import com.devnunu.ticle.base.BaseUi
 import com.devnunu.ticle.base.EmptyState
-import com.devnunu.ticle.ui.detail.DetailActivity
+import com.devnunu.ticle.presentation.detail.DetailActivity
 
 class MainActivity
     : BaseActivity<EmptyState, MainSideEffect, MainViewEvent, MainViewModel>() {

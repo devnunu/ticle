@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.home
+package com.devnunu.ticle.presentation.home
 
 import com.devnunu.ticle.base.BaseViewModel
 import com.devnunu.ticle.base.EmptyState

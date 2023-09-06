@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.home
+package com.devnunu.ticle.presentation.home
 
 sealed class MainSideEffect {
     data class StartDetailActivity(val budget: Long) : MainSideEffect()

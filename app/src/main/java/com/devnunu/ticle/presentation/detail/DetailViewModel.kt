@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.detail
+package com.devnunu.ticle.presentation.detail
 
 import com.devnunu.ticle.base.BaseViewModel
 

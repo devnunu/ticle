@@ -1,4 +1,4 @@
-package com.devnunu.ticle.datasource
+package com.devnunu.ticle.data.datasource
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

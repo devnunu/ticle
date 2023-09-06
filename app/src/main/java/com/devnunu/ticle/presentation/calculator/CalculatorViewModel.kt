@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.calculator
+package com.devnunu.ticle.presentation.calculator
 
 import androidx.lifecycle.ViewModel
 import org.orbitmvi.orbit.ContainerHost
@@ -6,7 +6,6 @@ import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
-import org.orbitmvi.orbit.viewmodel.observe
 
 data class CalculatorState(
     val total: Int = 0

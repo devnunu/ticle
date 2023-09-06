@@ -13,7 +13,7 @@
         android:theme="@style/AppCompat"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".presentation.home.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppCompat"
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.detail.DetailActivity" />
+        <activity android:name=".presentation.detail.DetailActivity" />
 
     </application>
 
