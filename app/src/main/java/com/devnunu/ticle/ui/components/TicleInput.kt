@@ -2,6 +2,8 @@ package com.devnunu.ticle.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
@@ -19,12 +21,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.devnunu.ticle.ui.theme.gray70
+import com.devnunu.ticle.ui.theme.gray90
+import com.devnunu.ticle.ui.theme.indigo40
 
 @Composable
 fun TicleInput(
     modifier: Modifier = Modifier,
     value: String,
     label: String,
+    placeholder: String,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onChangeInputText: (String) -> Unit,
     unitText: String? = null
@@ -42,10 +48,24 @@ fun TicleInput(
             BasicTextField(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(vertical = 10.dp),
+                    .padding(bottom = 5.dp),
                 textStyle = TextStyle.Default.copy(fontSize = 25.sp),
                 keyboardOptions = keyboardOptions,
                 value = value,
+                decorationBox = { innerTextField ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        if (value.isBlank()) {
+                            Text(
+                                modifier = Modifier.padding(top = 12.dp),
+                                text = placeholder,
+                                color = gray70,
+                            )
+                        }
+                    }
+                    innerTextField()
+                },
                 onValueChange = { newValue ->
                     onChangeInputText(newValue)
                 },
@@ -54,11 +74,11 @@ fun TicleInput(
                 Text(
                     modifier = Modifier.padding(vertical = 10.dp),
                     text = unitText,
-                    fontSize = 25.sp
+                    fontSize = 16.sp
                 )
             }
         }
-        val borderColor = if (value.isNotEmpty()) Color.Blue else Color.Gray
+        val borderColor = if (value.isNotEmpty()) indigo40 else gray90
         Divider(
             thickness = 1.dp,
             color = borderColor
@@ -71,8 +91,9 @@ fun TicleInput(
 fun InputPreview() {
     var inputText by remember { mutableStateOf("10000") }
     TicleInput(
-        value = inputText,
+        value = "",
         label = "Enter something",
+        placeholder = "placeHolder",
         onChangeInputText = { newValue ->
             inputText = newValue
         },

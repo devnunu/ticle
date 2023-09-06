@@ -3,6 +3,7 @@ package com.devnunu.ticle.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -14,7 +15,9 @@ import com.devnunu.ticle.R
 
 @Composable
 fun TicleTopBar(
-    onClickBackBtn: () -> Unit
+    rightDrawable: Int? = null,
+    onClickBackBtn: () -> Unit,
+    onClickRightDrawable: (() -> Unit)? = null,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth()
@@ -26,5 +29,15 @@ fun TicleTopBar(
             painter = painterResource(id = R.drawable.ic_arrow_left_bar_28px),
             contentDescription = null,
         )
+        Spacer(modifier = Modifier.weight(1f))
+        if (rightDrawable != null) {
+            Image(
+                modifier = Modifier
+                    .padding(end = 16.dp, top = 11.dp, bottom = 11.dp)
+                    .clickable { onClickRightDrawable?.invoke() },
+                painter = painterResource(id = rightDrawable),
+                contentDescription = null,
+            )
+        }
     }
 }

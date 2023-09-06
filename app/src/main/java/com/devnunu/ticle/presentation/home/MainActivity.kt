@@ -7,11 +7,13 @@ import androidx.activity.viewModels
 import com.devnunu.ticle.base.BaseActivity
 import com.devnunu.ticle.base.EmptyState
 import com.devnunu.ticle.presentation.detail.DetailActivity
+import com.devnunu.ticle.presentation.income.IncomeActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity
     : BaseActivity<EmptyState, MainSideEffect, MainViewEvent, MainViewModel>() {
 
-    override val viewModel: MainViewModel by viewModels()
+    override val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +26,8 @@ class MainActivity
 
     override fun handleSideEffect(sideEffect: MainSideEffect) {
         when (sideEffect) {
-            is MainSideEffect.StartDetailActivity -> {
-                val intent = Intent(this, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.PARAM_BUDGET, sideEffect.budget)
+            is MainSideEffect.StartIncomeActivity -> {
+                val intent = Intent(this, IncomeActivity::class.java)
                 startActivity(intent)
             }
         }

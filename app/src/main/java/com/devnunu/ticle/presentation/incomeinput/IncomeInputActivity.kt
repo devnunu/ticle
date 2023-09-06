@@ -1,4 +1,4 @@
-package com.devnunu.ticle.presentation.income
+package com.devnunu.ticle.presentation.incomeinput
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,36 +6,32 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.base.BaseActivity
-import com.devnunu.ticle.presentation.incomeinput.IncomeInputActivity
-import com.devnunu.ticle.presentation.incomeinput.IncomeInputSideEffect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class IncomeActivity :
-    BaseActivity<IncomeState, IncomeSideEffect, IncomeViewEvent, IncomeViewModel>() {
+class IncomeInputActivity :
+    BaseActivity<IncomeInputState, IncomeInputSideEffect, IncomeInputViewEvent, IncomeInputViewModel>() {
 
-    override val viewModel: IncomeViewModel by viewModel()
+    override val viewModel: IncomeInputViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
-            IncomeScreen(
+            IncomeInputScreen(
                 state = viewModel.state.collectAsState().value,
                 onEvent = viewModel::onEvent
             )
         }
     }
 
-    override fun handleSideEffect(sideEffect: IncomeSideEffect) {
+    override fun handleSideEffect(sideEffect: IncomeInputSideEffect) {
         super.handleSideEffect(sideEffect)
         when (sideEffect) {
-            IncomeSideEffect.GoBack -> {
+            IncomeInputSideEffect.GoBack -> {
                 onBackPressed()
             }
 
-            IncomeSideEffect.StartIncomeInput -> {
-                val intent = Intent(this, IncomeInputActivity::class.java)
-                startActivity(intent)
+            IncomeInputSideEffect.CompleteAddIncome -> {
+                finish()
             }
         }
     }

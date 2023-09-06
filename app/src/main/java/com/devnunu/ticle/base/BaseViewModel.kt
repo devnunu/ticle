@@ -2,6 +2,8 @@ package com.devnunu.ticle.base
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,6 +18,8 @@ open class BaseViewModel<STATE, SIDE_EFFECT, EVENT>(
     val state: StateFlow<STATE> = _state
 
     private val _sideEffects = MutableSharedFlow<SIDE_EFFECT>(extraBufferCapacity = 1)
+
+    open fun collectDataFlow(scope: CoroutineScope) {}
 
     fun setState(reducer: STATE.() -> STATE) {
         _state.value = reducer(_state.value)
@@ -33,4 +37,22 @@ open class BaseViewModel<STATE, SIDE_EFFECT, EVENT>(
     }
 
     open fun onEvent(event: EVENT) {}
+
+    protected open fun <T> Flow<T>.setOnEach(
+        scope: CoroutineScope,
+        reducer: STATE.(T) -> STATE
+    ): Job {
+        return onEach(scope) {
+            setState { reducer(it) }
+        }
+    }
+
+    protected open fun <T> Flow<T>.onEach(
+        scope: CoroutineScope,
+        action: suspend (T) -> Unit,
+    ): Job {
+        return onEach {
+            action(it)
+        }.launchIn(scope)
+    }
 }

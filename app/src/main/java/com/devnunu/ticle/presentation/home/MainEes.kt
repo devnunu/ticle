@@ -1,11 +1,12 @@
 package com.devnunu.ticle.presentation.home
 
-sealed class MainSideEffect {
-    data class StartDetailActivity(val budget: Long) : MainSideEffect()
+sealed class MainViewEvent {
+    object OnClickIncomeBtn : MainViewEvent()
+
 }
 
-sealed class MainViewEvent {
-    data class ClickNextBtn(val budget: Long) : MainViewEvent()
+sealed class MainSideEffect {
+    object StartIncomeActivity : MainSideEffect()
 }
 
 data class MainState(

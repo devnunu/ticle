@@ -1,5 +1,6 @@
 package com.devnunu.ticle.ui.components
 
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -10,26 +11,31 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.devnunu.ticle.ui.theme.gray70
+import com.devnunu.ticle.ui.theme.gray80
+import com.devnunu.ticle.ui.theme.indigo40
+import com.devnunu.ticle.ui.theme.indigo50
+import com.devnunu.ticle.ui.theme.white
 
 @Composable
 fun TicleButton(
     modifier: Modifier = Modifier,
     buttonText: String,
-    containerColor: Color = Color.Blue,
-    contentColor: Color = Color.White,
+    containerColor: Color = indigo50,
+    contentColor: Color = white,
     enable: Boolean = true,
     onClickButton: () -> Unit
 ) {
     Button(
-        modifier = modifier,
+        modifier = modifier.height(50.dp),
         onClick = onClickButton,
         enabled = enable,
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(12.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
             contentColor = contentColor,
-            disabledContainerColor = Color.Gray,
-            disabledContentColor = Color.White,
+            disabledContainerColor = gray80,
+            disabledContentColor = white,
         )
     ) {
         Text(

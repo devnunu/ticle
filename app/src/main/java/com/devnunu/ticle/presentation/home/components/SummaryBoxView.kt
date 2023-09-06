@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.ui.theme.Purple20
+import com.devnunu.ticle.ui.theme.white
 
 @Composable
 fun SummaryBoxView(
@@ -34,20 +35,20 @@ fun SummaryBoxView(
             text = text,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = white
         )
         Text(
             text = value,
             fontSize = 14.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = white
         )
         Text(
             modifier = Modifier.align(Alignment.End),
             text = "더보기 >",
             fontSize = 10.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = white
         )
     }
 }

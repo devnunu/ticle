@@ -1,14 +1,19 @@
 package com.devnunu.ticle.data.datasource
 
+import androidx.lifecycle.LiveData
+import com.devnunu.ticle.model.UserIncome
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class AssetMemoryDataSourceImpl : AssetDataSource {
 
-    private val _budget = MutableStateFlow<Long?>(null)
-    val budget: StateFlow<Long?> = _budget
+    private val _incomeListFlow = MutableStateFlow<List<UserIncome>>(emptyList())
 
-    private fun setBudget(budget: Long) {
-        _budget.value = budget
+    override fun getIncomeListFlow(): StateFlow<List<UserIncome>> = _incomeListFlow
+
+    override fun addIncome(userIncome: UserIncome) {
+        val incomeList = _incomeListFlow.value.toMutableList()
+        incomeList.add(userIncome)
+        _incomeListFlow.value = incomeList
     }
 }

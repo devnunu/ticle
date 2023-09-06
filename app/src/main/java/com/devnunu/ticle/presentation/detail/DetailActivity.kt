@@ -5,11 +5,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.base.BaseActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity :
     BaseActivity<DetailState, DetailSideEffect, DetailViewEvent, DetailViewModel>() {
 
-    override val viewModel: DetailViewModel by viewModels()
+    override val viewModel: DetailViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

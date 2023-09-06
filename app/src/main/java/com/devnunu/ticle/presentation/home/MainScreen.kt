@@ -24,6 +24,7 @@ fun MainScreen(
             .fillMaxSize()
             .padding(horizontal = 20.dp)
     ) {
+        Spacer(modifier = Modifier.padding(20.dp))
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -32,7 +33,9 @@ fun MainScreen(
                 text = "총 수입",
                 value = "0 원",
                 backgroundColor = Purple20,
-                onClick = {}
+                onClick = {
+                    onEvent(MainViewEvent.OnClickIncomeBtn)
+                }
             )
             Spacer(modifier = Modifier.padding(10.dp))
             SummaryBoxView(
@@ -48,38 +51,6 @@ fun MainScreen(
             modifier = Modifier.padding(top = 20.dp),
             label = "고정지출"
         )
-
-//        var budget by remember { mutableStateOf<Long?>(null) }
-//        TicleInput(
-//            modifier = Modifier.padding(top = 20.dp),
-//            value = budget?.toString() ?: "",
-//            label = "월 예산",
-//            unitText = "만원",
-//            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-//            onChangeInputText = { str ->
-//                if (str.isEmpty()) {
-//                    budget = null
-//                } else {
-//                    try {
-//                        budget = str.toLong()
-//                    } catch (e: Exception) {
-//                        e.printStackTrace()
-//                    }
-//                }
-//            }
-//        )
-//        Spacer(modifier = Modifier.weight(1f))
-//        TicleButton(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(bottom = 20.dp),
-//            buttonText = "다음",
-//            onClickButton = {
-//                budget?.let {
-//                    onEvent(MainViewEvent.ClickNextBtn(it))
-//                }
-//            }
-//        )
     }
 }
 

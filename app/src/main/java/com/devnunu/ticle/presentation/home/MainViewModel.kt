@@ -8,9 +8,8 @@ class MainViewModel(
 ) : BaseViewModel<EmptyState, MainSideEffect, MainViewEvent>(initialState) {
 
     override fun onEvent(event: MainViewEvent) = when (event) {
-        is MainViewEvent.ClickNextBtn -> {
-            val budget = event.budget * 10000
-            postSideEffect(MainSideEffect.StartDetailActivity(budget = budget))
+        is MainViewEvent.OnClickIncomeBtn -> {
+            postSideEffect(MainSideEffect.StartIncomeActivity)
         }
     }
 }

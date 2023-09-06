@@ -18,6 +18,7 @@ abstract class BaseActivity<STATE, SIDE_EFFECT, VIEW_EVENT, VIEW_MODEL : BaseVie
     private fun setEventFlow() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.collectDataFlow(this)
                 viewModel.subscribeSideEffect(this@repeatOnLifecycle, ::handleSideEffect)
             }
         }
