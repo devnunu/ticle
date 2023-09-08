@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.components
+package com.devnunu.ticle.core.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.devnunu.ticle.R
+import com.devnunu.ticle.core.ui.R
 
 @Composable
 fun AssetEmptyView(

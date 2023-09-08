@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.components
+package com.devnunu.ticle.core.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,9 +21,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.devnunu.ticle.ui.theme.gray70
-import com.devnunu.ticle.ui.theme.gray90
-import com.devnunu.ticle.ui.theme.indigo40
+import com.devnunu.ticle.core.ui.theme.gray70
+import com.devnunu.ticle.core.ui.theme.gray90
+import com.devnunu.ticle.core.ui.theme.indigo40
 
 @Composable
 fun TicleInput(

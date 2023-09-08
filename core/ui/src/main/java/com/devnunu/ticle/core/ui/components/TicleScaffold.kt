@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.components
+package com.devnunu.ticle.core.ui.components
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.ExperimentalMaterial3Api

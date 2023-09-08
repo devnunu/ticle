@@ -14,9 +14,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.devnunu.ticle.ui.ext.clickableRipple
-import com.devnunu.ticle.ui.theme.Purple20
-import com.devnunu.ticle.ui.theme.white
+import com.devnunu.ticle.core.ui.ext.clickableRipple
+import com.devnunu.ticle.core.ui.theme.Purple20
+import com.devnunu.ticle.core.ui.theme.white
 
 @Composable
 fun SummaryBoxView(

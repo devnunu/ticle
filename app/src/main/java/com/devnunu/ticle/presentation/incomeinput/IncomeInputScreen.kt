@@ -15,10 +15,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.ui.components.TicleButton
-import com.devnunu.ticle.ui.components.TicleInput
-import com.devnunu.ticle.ui.components.TicleScaffold
-import com.devnunu.ticle.ui.components.TicleTopBar
+import com.devnunu.ticle.core.ui.components.TicleButton
+import com.devnunu.ticle.core.ui.components.TicleInput
+import com.devnunu.ticle.core.ui.components.TicleScaffold
+import com.devnunu.ticle.core.ui.components.TicleTopBar
 
 @Composable
 fun IncomeInputScreen(

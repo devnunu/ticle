@@ -47,6 +47,7 @@ dependencies {
 
     implementation(project(":util"))
 
+    implementation(project(":core:ui"))
     implementation(project(":core:base"))
 
     implementation(project(":data:asset"))

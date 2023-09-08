@@ -15,8 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "ticle"
 include(":app")
+include(":core:ui")
 include(":core:base")
 include(":data:asset")
 include(":model:asset")
 include(":util")
-

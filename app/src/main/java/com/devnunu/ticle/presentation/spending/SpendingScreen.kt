@@ -19,12 +19,12 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.ui.components.AssetEmptyView
+import com.devnunu.ticle.core.ui.components.AssetEmptyView
 import com.devnunu.ticle.presentation.spending.components.SpendingItemView
-import com.devnunu.ticle.ui.components.TicleScaffold
-import com.devnunu.ticle.ui.components.TicleTopBar
-import com.devnunu.ticle.ui.theme.gray99
-import com.devnunu.ticle.ui.theme.indigo40
+import com.devnunu.ticle.core.ui.components.TicleScaffold
+import com.devnunu.ticle.core.ui.components.TicleTopBar
+import com.devnunu.ticle.core.ui.theme.gray99
+import com.devnunu.ticle.core.ui.theme.indigo40
 
 @Composable
 fun SpendScreen(

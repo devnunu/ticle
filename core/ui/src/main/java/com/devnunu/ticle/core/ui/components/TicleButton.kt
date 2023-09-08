@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.components
+package com.devnunu.ticle.core.ui.components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,11 +11,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.devnunu.ticle.ui.theme.gray70
-import com.devnunu.ticle.ui.theme.gray80
-import com.devnunu.ticle.ui.theme.indigo40
-import com.devnunu.ticle.ui.theme.indigo50
-import com.devnunu.ticle.ui.theme.white
+import com.devnunu.ticle.core.ui.theme.gray70
+import com.devnunu.ticle.core.ui.theme.gray80
+import com.devnunu.ticle.core.ui.theme.indigo40
+import com.devnunu.ticle.core.ui.theme.indigo50
+import com.devnunu.ticle.core.ui.theme.white
 
 @Composable
 fun TicleButton(

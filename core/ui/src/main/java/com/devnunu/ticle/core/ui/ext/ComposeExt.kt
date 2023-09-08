@@ -1,4 +1,4 @@
-package com.devnunu.ticle.ui.ext
+package com.devnunu.ticle.core.ui.ext
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

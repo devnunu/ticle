@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.presentation.home.components.SpendBoxView
 import com.devnunu.ticle.presentation.home.components.SummaryBoxView
-import com.devnunu.ticle.ui.theme.Purple20
-import com.devnunu.ticle.ui.theme.Purple40
+import com.devnunu.ticle.core.ui.theme.Purple20
+import com.devnunu.ticle.core.ui.theme.Purple40
 
 @Composable
 fun MainScreen(
