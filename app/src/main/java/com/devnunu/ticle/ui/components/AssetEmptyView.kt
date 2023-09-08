@@ -1,4 +1,4 @@
-package com.devnunu.ticle.presentation.income.components
+package com.devnunu.ticle.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -14,8 +14,9 @@ import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.R
 
 @Composable
-fun IncomeEmptyView(
-    modifier: Modifier = Modifier
+fun AssetEmptyView(
+    modifier: Modifier = Modifier,
+    description: String
 ) {
     Column(
         modifier = modifier,
@@ -29,6 +30,6 @@ fun IncomeEmptyView(
             painter = painterResource(id = R.drawable.ic_warning_24px),
             contentDescription = null
         )
-        Text(text = "수입 내역이 없습니다")
+        Text(text = description)
     }
 }

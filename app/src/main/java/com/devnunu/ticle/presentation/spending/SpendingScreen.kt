@@ -1,4 +1,4 @@
-package com.devnunu.ticle.presentation.income
+package com.devnunu.ticle.presentation.spending
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -16,30 +16,28 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.model.UserIncome
 import com.devnunu.ticle.ui.components.AssetEmptyView
-import com.devnunu.ticle.presentation.income.components.IncomeItemView
+import com.devnunu.ticle.presentation.spending.components.SpendingItemView
 import com.devnunu.ticle.ui.components.TicleScaffold
 import com.devnunu.ticle.ui.components.TicleTopBar
 import com.devnunu.ticle.ui.theme.gray99
 import com.devnunu.ticle.ui.theme.indigo40
 
 @Composable
-fun IncomeScreen(
-    state: IncomeState,
-    onEvent: (IncomeViewEvent) -> Unit
+fun SpendScreen(
+    state: SpendingState,
+    onEvent: (SpendingViewEvent) -> Unit
 ) {
-    val userIncomeList = state.userIncomeList
+    val userSpendList = state.userSpendingList
     TicleScaffold(
         topBar = {
             TicleTopBar(
                 rightDrawable = R.drawable.ic_plus_28px,
-                onClickBackBtn = { onEvent(IncomeViewEvent.OnClickBackPress) },
-                onClickRightDrawable = { onEvent(IncomeViewEvent.OnClickAddIncomeIcon) }
+                onClickBackBtn = { onEvent(SpendingViewEvent.OnClickBackPress) },
+                onClickRightDrawable = { onEvent(SpendingViewEvent.OnClickAddSpendingIcon) }
             )
         }
     ) { paddingValues ->
@@ -56,12 +54,12 @@ fun IncomeScreen(
             ) {
                 Text(
                     modifier = Modifier.padding(bottom = 5.dp),
-                    text = "총 수입",
+                    text = "총 지출",
                     fontSize = 14.sp
                 )
                 Text(
                     text = buildAnnotatedString {
-                        append(state.totalIncomeText)
+                        append(state.totalSpendingText)
                         withStyle(style = SpanStyle(fontSize = 16.sp)) {
                             append(" 원")
                         }
@@ -88,54 +86,32 @@ fun IncomeScreen(
                                 fontWeight = FontWeight.Bold
                             )
                         ) {
-                            val incomeCount = state.userIncomeList.size.toString()
+                            val incomeCount = state.userSpendingList.size.toString()
                             append(incomeCount)
                         }
                         append(" 건")
                     },
                     fontSize = 14.sp,
                 )
-                if (userIncomeList.isEmpty()) {
+                if (userSpendList.isEmpty()) {
                     AssetEmptyView(
                         modifier = Modifier
                             .weight(1f)
                             .align(Alignment.CenterHorizontally),
-                        description = "수입 내역이 없습니다"
+                        description = "지출 내역이 없습니다"
                     )
                 } else {
                     Spacer(modifier = Modifier.padding(10.dp))
-                    userIncomeList.forEach {
-                        IncomeItemView(
+                    userSpendList.forEach {
+                        SpendingItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 10.dp),
-                            userIncome = it
+                            userSpending = it
                         )
                     }
                 }
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun IncomeScreenPreview1() {
-    IncomeScreen(
-        state = IncomeState(userIncomeList = emptyList()),
-        onEvent = {}
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun IncomeScreenPreview2() {
-    IncomeScreen(
-        state = IncomeState(
-            userIncomeList = listOf(
-                UserIncome("수입", 100000)
-            )
-        ),
-        onEvent = {}
-    )
 }

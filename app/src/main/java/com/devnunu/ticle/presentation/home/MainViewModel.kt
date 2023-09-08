@@ -1,7 +1,6 @@
 package com.devnunu.ticle.presentation.home
 
 import com.devnunu.ticle.base.BaseViewModel
-import com.devnunu.ticle.base.EmptyState
 import com.devnunu.ticle.data.repository.AssetRepository
 import kotlinx.coroutines.CoroutineScope
 
@@ -19,6 +18,9 @@ class MainViewModel(
     override fun onEvent(event: MainViewEvent) = when (event) {
         is MainViewEvent.OnClickIncomeBtn -> {
             postSideEffect(MainSideEffect.StartIncomeActivity)
+        }
+        is MainViewEvent.OnClickSpendingBtn-> {
+            postSideEffect(MainSideEffect.StartSpendingActivity)
         }
     }
 }

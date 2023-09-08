@@ -6,11 +6,13 @@ import com.devnunu.ticle.util.NumberFormatUtil
 
 sealed class MainViewEvent {
     object OnClickIncomeBtn : MainViewEvent()
+    object OnClickSpendingBtn: MainViewEvent()
 
 }
 
 sealed class MainSideEffect {
     object StartIncomeActivity : MainSideEffect()
+    object StartSpendingActivity : MainSideEffect()
 }
 
 data class MainState(

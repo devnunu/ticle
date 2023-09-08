@@ -44,7 +44,9 @@ fun MainScreen(
                 text = "총 지출",
                 value = "0 원",
                 backgroundColor = Purple40,
-                onClick = {}
+                onClick = {
+                    onEvent(MainViewEvent.OnClickSpendingBtn)
+                }
             )
         }
 

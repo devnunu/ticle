@@ -27,9 +27,9 @@
         </activity>
 
         <activity android:name=".presentation.detail.DetailActivity" />
-
         <activity android:name=".presentation.income.IncomeActivity" />
         <activity android:name=".presentation.incomeinput.IncomeInputActivity" />
+        <activity android:name=".presentation.spending.SpendingActivity" />
 
     </application>
 

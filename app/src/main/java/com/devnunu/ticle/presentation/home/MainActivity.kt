@@ -9,6 +9,7 @@ import com.devnunu.ticle.base.BaseActivity
 import com.devnunu.ticle.base.EmptyState
 import com.devnunu.ticle.presentation.detail.DetailActivity
 import com.devnunu.ticle.presentation.income.IncomeActivity
+import com.devnunu.ticle.presentation.spending.SpendingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity
@@ -30,6 +31,10 @@ class MainActivity
         when (sideEffect) {
             is MainSideEffect.StartIncomeActivity -> {
                 val intent = Intent(this, IncomeActivity::class.java)
+                startActivity(intent)
+            }
+            is MainSideEffect.StartSpendingActivity -> {
+                val intent = Intent(this, SpendingActivity::class.java)
                 startActivity(intent)
             }
         }
