@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.devnunu.ticle.presentation.home.components.SpendBoxView
-import com.devnunu.ticle.presentation.home.components.SummaryBoxView
+import com.devnunu.ticle.presentation.home.components.TotalSpendingBanner
+import com.devnunu.ticle.presentation.home.components.TotalIncomeBanner
 import com.devnunu.ticle.core.ui.theme.Purple20
 import com.devnunu.ticle.core.ui.theme.Purple40
-import com.devnunu.ticle.presentation.home.components.TotalSummaryBoxView
+import com.devnunu.ticle.presentation.home.components.SpareMoneyBanner
 
 @Composable
 fun MainScreen(
@@ -27,7 +27,7 @@ fun MainScreen(
             .padding(horizontal = 20.dp)
     ) {
         Spacer(modifier = Modifier.padding(20.dp))
-        TotalSummaryBoxView(
+        SpareMoneyBanner(
             totalSummaryText = state.totalSummaryText,
             onClick = {}
         )
@@ -35,7 +35,7 @@ fun MainScreen(
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
-            SummaryBoxView(
+            TotalIncomeBanner(
                 modifier = Modifier.weight(1f),
                 text = "월 수입",
                 value = "${state.totalIncomeText} 원",
@@ -45,7 +45,7 @@ fun MainScreen(
                 }
             )
             Spacer(modifier = Modifier.padding(10.dp))
-            SummaryBoxView(
+            TotalIncomeBanner(
                 modifier = Modifier.weight(1f),
                 text = "월 지출",
                 value = "${state.totalSpendingText} 원",
@@ -56,7 +56,7 @@ fun MainScreen(
             )
         }
 
-        SpendBoxView(
+        TotalSpendingBanner(
             modifier = Modifier.padding(top = 20.dp),
             label = "고정지출"
         )

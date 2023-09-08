@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SpendBoxView(
+fun TotalSpendingBanner(
     modifier: Modifier = Modifier,
     label: String
 ) {

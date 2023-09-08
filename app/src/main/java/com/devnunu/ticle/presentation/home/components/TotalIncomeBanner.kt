@@ -1,7 +1,6 @@
 package com.devnunu.ticle.presentation.home.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,18 +10,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.core.ui.ext.clickableRipple
 import com.devnunu.ticle.core.ui.theme.Bold14
 import com.devnunu.ticle.core.ui.theme.Bold16
-import com.devnunu.ticle.core.ui.theme.Purple20
 import com.devnunu.ticle.core.ui.theme.Regular10
 import com.devnunu.ticle.core.ui.theme.white
 
 @Composable
-fun SummaryBoxView(
+fun TotalIncomeBanner(
     modifier: Modifier = Modifier,
     text: String,
     value: String,

@@ -19,19 +19,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.R
 import com.devnunu.ticle.core.ui.ext.clickableRipple
-import com.devnunu.ticle.core.ui.theme.Bold18
 import com.devnunu.ticle.core.ui.theme.Bold24
-import com.devnunu.ticle.core.ui.theme.Medium13
-import com.devnunu.ticle.core.ui.theme.Medium15
 import com.devnunu.ticle.core.ui.theme.Medium18
 import com.devnunu.ticle.core.ui.theme.Regular12
-import com.devnunu.ticle.core.ui.theme.indigo30
 import com.devnunu.ticle.core.ui.theme.indigo40
-import com.devnunu.ticle.core.ui.theme.indigo80
 import com.devnunu.ticle.core.ui.theme.white
 
 @Composable
-fun TotalSummaryBoxView(
+fun SpareMoneyBanner(
     modifier: Modifier = Modifier,
     totalSummaryText: String,
     onClick: () -> Unit
@@ -86,7 +81,7 @@ fun TotalSummaryBoxView(
 @Preview(showBackground = true)
 @Composable
 fun TotalSummaryBoxViewPreview() {
-    TotalSummaryBoxView(
+    SpareMoneyBanner(
         totalSummaryText = "0",
         onClick = {}
     )
