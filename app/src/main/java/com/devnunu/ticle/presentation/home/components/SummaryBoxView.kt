@@ -9,10 +9,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.devnunu.ticle.ui.ext.clickableRipple
 import com.devnunu.ticle.ui.theme.Purple20
 import com.devnunu.ticle.ui.theme.white
 
@@ -27,8 +29,9 @@ fun SummaryBoxView(
     Column(
         modifier = modifier
             .background(backgroundColor, RoundedCornerShape(15.dp))
+            .clip(RoundedCornerShape(15.dp))
+            .clickableRipple(bounded = true) { onClick() }
             .padding(horizontal = 15.dp, vertical = 20.dp)
-            .clickable { onClick() }
     ) {
         Text(
             modifier = Modifier.padding(bottom = 10.dp),

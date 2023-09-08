@@ -17,6 +17,7 @@ import com.devnunu.ticle.ui.theme.Purple40
 
 @Composable
 fun MainScreen(
+    state: MainState,
     onEvent: (MainViewEvent) -> Unit
 ) {
     Column(
@@ -31,7 +32,7 @@ fun MainScreen(
             SummaryBoxView(
                 modifier = Modifier.weight(1f),
                 text = "총 수입",
-                value = "0 원",
+                value = "${state.totalIncomeText} 원",
                 backgroundColor = Purple20,
                 onClick = {
                     onEvent(MainViewEvent.OnClickIncomeBtn)
@@ -58,6 +59,7 @@ fun MainScreen(
 @Composable
 fun MainScreenPreview() {
     MainScreen(
+        state = MainState(),
         onEvent = {}
     )
 }

@@ -30,6 +30,7 @@ import com.devnunu.ticle.model.getTotalIncome
 import com.devnunu.ticle.presentation.income.components.IncomeEmptyView
 import com.devnunu.ticle.presentation.income.components.IncomeItemView
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputViewEvent
+import com.devnunu.ticle.ui.components.TicleScaffold
 import com.devnunu.ticle.ui.components.TicleTopBar
 import com.devnunu.ticle.ui.theme.gray99
 import com.devnunu.ticle.ui.theme.indigo40
@@ -41,14 +42,18 @@ fun IncomeScreen(
     onEvent: (IncomeViewEvent) -> Unit
 ) {
     val userIncomeList = state.userIncomeList
-    Column {
-        TicleTopBar(
-            rightDrawable = R.drawable.ic_plus_28px,
-            onClickBackBtn = { onEvent(IncomeViewEvent.OnClickBackPress) },
-            onClickRightDrawable = { onEvent(IncomeViewEvent.OnClickAddIncomeIcon) }
-        )
+    TicleScaffold(
+        topBar = {
+            TicleTopBar(
+                rightDrawable = R.drawable.ic_plus_28px,
+                onClickBackBtn = { onEvent(IncomeViewEvent.OnClickBackPress) },
+                onClickRightDrawable = { onEvent(IncomeViewEvent.OnClickAddIncomeIcon) }
+            )
+        }
+    ) { paddingValues ->
         Column(
             modifier = Modifier
+                .padding(top = paddingValues.calculateTopPadding())
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
         ) {

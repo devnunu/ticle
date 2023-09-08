@@ -2,10 +2,19 @@ package com.devnunu.ticle.presentation.home
 
 import com.devnunu.ticle.base.BaseViewModel
 import com.devnunu.ticle.base.EmptyState
+import com.devnunu.ticle.data.repository.AssetRepository
+import kotlinx.coroutines.CoroutineScope
 
 class MainViewModel(
-    initialState: EmptyState = EmptyState()
-) : BaseViewModel<EmptyState, MainSideEffect, MainViewEvent>(initialState) {
+    private val assetRepository: AssetRepository,
+    initialState: MainState = MainState()
+) : BaseViewModel<MainState, MainSideEffect, MainViewEvent>(initialState) {
+
+    override fun collectDataFlow(scope: CoroutineScope) {
+        assetRepository.getIncomeListFlow().setOnEach(scope) { userIncomeList ->
+            copy(userIncomeList = userIncomeList)
+        }
+    }
 
     override fun onEvent(event: MainViewEvent) = when (event) {
         is MainViewEvent.OnClickIncomeBtn -> {

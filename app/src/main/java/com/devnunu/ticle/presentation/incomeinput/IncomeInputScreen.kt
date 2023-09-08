@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.R
 import com.devnunu.ticle.ui.components.TicleButton
 import com.devnunu.ticle.ui.components.TicleInput
+import com.devnunu.ticle.ui.components.TicleScaffold
 import com.devnunu.ticle.ui.components.TicleTopBar
 
 @Composable
@@ -27,58 +28,74 @@ fun IncomeInputScreen(
     var incomeName by remember { mutableStateOf("") }
     var budget by remember { mutableStateOf<Long?>(null) }
 
-    Column {
-        TicleTopBar(
-            onClickBackBtn = { onEvent(IncomeInputViewEvent.OnClickBackPress) },
-        )
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp)
-        ) {
-            TicleInput(
-                modifier = Modifier.padding(top = 20.dp),
-                value = incomeName,
-                label = "수입명",
-                placeholder = "수입명을 입력해주세요",
-                onChangeInputText = { str ->
-                    incomeName = str
-                }
+    TicleScaffold(
+        topBar = {
+            TicleTopBar(
+                onClickBackBtn = { onEvent(IncomeInputViewEvent.OnClickBackPress) },
             )
-            Spacer(modifier = Modifier.padding(10.dp))
-            TicleInput(
-                modifier = Modifier.padding(top = 20.dp),
-                value = budget?.toString() ?: "",
-                label = "수입 금액",
-                placeholder = "수입 금액을 입력해주세요",
-                unitText = "만원",
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                onChangeInputText = { str ->
-                    if (str.isEmpty()) {
-                        budget = null
-                    } else {
-                        try {
-                            budget = str.toLong()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-                    }
+        },
+        bottomBar = {
+            val isBtnEnable = incomeName.isNotBlank() && budget != null
+            TicleButton(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
+                buttonText = "완료",
+                enable = isBtnEnable,
+                onClickButton = {
+                    val budget = budget ?: return@TicleButton
+                    onEvent(IncomeInputViewEvent.OnClickCompleteBtn(incomeName, budget))
                 }
             )
         }
-        Spacer(modifier = Modifier.weight(1f))
-        val isBtnEnable = incomeName.isNotBlank() && budget != null
-        TicleButton(
+    ) { paddingValues ->
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
-            buttonText = "완료",
-            enable = isBtnEnable,
-            onClickButton = {
-                val budget = budget ?: return@TicleButton
-                onEvent(IncomeInputViewEvent.OnClickCompleteBtn(incomeName, budget))
+                .padding(
+                    top = paddingValues.calculateTopPadding(),
+                    bottom = paddingValues.calculateBottomPadding()
+                )
+        ) {
+            Column(
+                modifier = Modifier
+
+
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+            ) {
+                TicleInput(
+                    modifier = Modifier
+                        .padding(top = 20.dp),
+                    value = incomeName,
+                    label = "수입명",
+                    placeholder = "수입명을 입력해주세요",
+                    onChangeInputText = { str ->
+                        incomeName = str
+                    }
+                )
+                Spacer(modifier = Modifier.padding(10.dp))
+                TicleInput(
+                    modifier = Modifier.padding(top = 20.dp),
+                    value = budget?.toString() ?: "",
+                    label = "수입 금액",
+                    placeholder = "수입 금액을 입력해주세요",
+                    unitText = "만원",
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                    onChangeInputText = { str ->
+                        if (str.isEmpty()) {
+                            budget = null
+                        } else {
+                            try {
+                                budget = str.toLong()
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        }
+                    }
+                )
             }
-        )
+            Spacer(modifier = Modifier.weight(1f))
+        }
     }
 }
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
+import com.devnunu.ticle.R
 import com.devnunu.ticle.base.BaseActivity
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputActivity
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputSideEffect
@@ -17,7 +18,7 @@ class IncomeActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        overridePendingTransition(R.anim.right_in, R.anim.nothing)
         setContent {
             IncomeScreen(
                 state = viewModel.state.collectAsState().value,
@@ -38,5 +39,10 @@ class IncomeActivity :
                 startActivity(intent)
             }
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.nothing, R.anim.right_out)
     }
 }

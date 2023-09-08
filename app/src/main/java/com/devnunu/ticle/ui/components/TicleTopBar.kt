@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.R
+import com.devnunu.ticle.ui.ext.clickableRipple
 
 @Composable
 fun TicleTopBar(
@@ -25,7 +26,7 @@ fun TicleTopBar(
         Image(
             modifier = Modifier
                 .padding(start = 16.dp, top = 11.dp, bottom = 11.dp)
-                .clickable { onClickBackBtn() },
+                .clickableRipple { onClickBackBtn() },
             painter = painterResource(id = R.drawable.ic_arrow_left_bar_28px),
             contentDescription = null,
         )
@@ -34,7 +35,7 @@ fun TicleTopBar(
             Image(
                 modifier = Modifier
                     .padding(end = 16.dp, top = 11.dp, bottom = 11.dp)
-                    .clickable { onClickRightDrawable?.invoke() },
+                    .clickableRipple { onClickRightDrawable?.invoke() },
                 painter = painterResource(id = rightDrawable),
                 contentDescription = null,
             )
