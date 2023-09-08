@@ -1,9 +1,7 @@
 package com.devnunu.ticle.presentation.income
 
-import com.devnunu.ticle.model.UserIncome
-import com.devnunu.ticle.model.getTotalIncome
-import com.devnunu.ticle.presentation.incomeinput.IncomeInputSideEffect
-import com.devnunu.ticle.presentation.incomeinput.IncomeInputViewEvent
+import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.getTotalIncome
 import com.devnunu.ticle.util.NumberFormatUtil
 
 sealed class IncomeViewEvent {

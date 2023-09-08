@@ -1,8 +1,8 @@
-package com.devnunu.ticle.data.repository
+package com.devnunu.ticle.data.asset.repository
 
-import com.devnunu.ticle.data.datasource.AssetDataSource
-import com.devnunu.ticle.model.UserIncome
-import com.devnunu.ticle.model.UserSpending
+import com.devnunu.ticle.data.asset.datasource.AssetDataSource
+import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.UserSpending
 import kotlinx.coroutines.flow.StateFlow
 
 class AssetRepositoryImpl(

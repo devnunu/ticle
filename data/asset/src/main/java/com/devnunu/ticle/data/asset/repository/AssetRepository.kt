@@ -1,10 +1,11 @@
-package com.devnunu.ticle.data.datasource
+package com.devnunu.ticle.data.asset.repository
 
-import com.devnunu.ticle.model.UserIncome
-import com.devnunu.ticle.model.UserSpending
+import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.UserSpending
 import kotlinx.coroutines.flow.StateFlow
 
-interface AssetDataSource {
+interface AssetRepository {
+
     fun getIncomeListFlow(): StateFlow<List<UserIncome>>
 
     fun addIncome(userIncome: UserIncome)

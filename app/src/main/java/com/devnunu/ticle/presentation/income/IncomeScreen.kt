@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.model.UserIncome
+import com.devnunu.ticle.model.asset.UserIncome
 import com.devnunu.ticle.ui.components.AssetEmptyView
 import com.devnunu.ticle.presentation.income.components.IncomeItemView
 import com.devnunu.ticle.ui.components.TicleScaffold

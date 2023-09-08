@@ -45,7 +45,13 @@ android {
 
 dependencies {
 
+    implementation(project(":util"))
+
     implementation(project(":core:base"))
+
+    implementation(project(":data:asset"))
+
+    implementation(project(":model:asset"))
 
     implementation(DependencyInfo.AndroidX.core)
     implementation(DependencyInfo.AndroidX.appCompat)

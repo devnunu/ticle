@@ -1,7 +1,7 @@
 package com.devnunu.ticle.presentation.home
 
-import com.devnunu.ticle.model.UserIncome
-import com.devnunu.ticle.model.getTotalIncome
+import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.getTotalIncome
 import com.devnunu.ticle.util.NumberFormatUtil
 
 sealed class MainViewEvent {

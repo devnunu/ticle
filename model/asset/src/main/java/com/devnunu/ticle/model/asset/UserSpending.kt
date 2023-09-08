@@ -1,4 +1,4 @@
-package com.devnunu.ticle.model
+package com.devnunu.ticle.model.asset
 
 import com.devnunu.ticle.util.NumberFormatUtil
 

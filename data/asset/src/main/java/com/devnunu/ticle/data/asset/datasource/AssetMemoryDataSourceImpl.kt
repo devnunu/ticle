@@ -1,8 +1,7 @@
-package com.devnunu.ticle.data.datasource
+package com.devnunu.ticle.data.asset.datasource
 
-import androidx.lifecycle.LiveData
-import com.devnunu.ticle.model.UserIncome
-import com.devnunu.ticle.model.UserSpending
+import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.UserSpending
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

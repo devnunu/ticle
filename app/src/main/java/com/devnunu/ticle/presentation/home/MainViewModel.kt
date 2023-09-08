@@ -1,7 +1,7 @@
 package com.devnunu.ticle.presentation.home
 
 import com.devnunu.ticle.core.base.BaseViewModel
-import com.devnunu.ticle.data.repository.AssetRepository
+import com.devnunu.ticle.data.asset.repository.AssetRepository
 import kotlinx.coroutines.CoroutineScope
 
 class MainViewModel(
