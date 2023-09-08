@@ -15,7 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.core.ui.ext.clickableRipple
+import com.devnunu.ticle.core.ui.theme.Bold14
+import com.devnunu.ticle.core.ui.theme.Bold16
 import com.devnunu.ticle.core.ui.theme.Purple20
+import com.devnunu.ticle.core.ui.theme.Regular10
 import com.devnunu.ticle.core.ui.theme.white
 
 @Composable
@@ -31,26 +34,23 @@ fun SummaryBoxView(
             .background(backgroundColor, RoundedCornerShape(15.dp))
             .clip(RoundedCornerShape(15.dp))
             .clickableRipple(bounded = true) { onClick() }
-            .padding(horizontal = 15.dp, vertical = 20.dp)
+            .padding(start = 15.dp, end = 15.dp, top = 20.dp, bottom = 15.dp)
     ) {
         Text(
             modifier = Modifier.padding(bottom = 10.dp),
+            style = Bold16,
             text = text,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
             color = white
         )
         Text(
+            style = Bold14,
             text = value,
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
             color = white
         )
         Text(
             modifier = Modifier.align(Alignment.End),
+            style = Regular10,
             text = "더보기 >",
-            fontSize = 10.sp,
-            fontWeight = FontWeight.Bold,
             color = white
         )
     }

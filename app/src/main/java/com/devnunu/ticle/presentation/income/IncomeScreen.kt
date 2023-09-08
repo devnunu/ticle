@@ -56,7 +56,7 @@ fun IncomeScreen(
             ) {
                 Text(
                     modifier = Modifier.padding(bottom = 5.dp),
-                    text = "총 수입",
+                    text = "월 수입",
                     fontSize = 14.sp
                 )
                 Text(

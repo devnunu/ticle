@@ -1,4 +1,4 @@
-package com.devnunu.ticle.di
+package com.devnunu.ticle.data.asset.di
 
 import com.devnunu.ticle.data.asset.datasource.AssetDataSource
 import com.devnunu.ticle.data.asset.datasource.AssetMemoryDataSourceImpl

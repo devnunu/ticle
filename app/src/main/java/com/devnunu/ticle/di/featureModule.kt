@@ -5,6 +5,7 @@ import com.devnunu.ticle.presentation.home.MainViewModel
 import com.devnunu.ticle.presentation.income.IncomeViewModel
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputViewModel
 import com.devnunu.ticle.presentation.spending.SpendingViewModel
+import com.devnunu.ticle.presentation.spendinginput.SpendingInputViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -19,5 +20,7 @@ val featureModule = module {
     viewModel { IncomeInputViewModel(get()) }
 
     viewModel { SpendingViewModel(get()) }
+
+    viewModel { SpendingInputViewModel(get()) }
 
 }

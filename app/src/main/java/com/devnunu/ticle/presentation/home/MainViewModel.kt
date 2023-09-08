@@ -13,6 +13,10 @@ class MainViewModel(
         assetRepository.getIncomeListFlow().setOnEach(scope) { userIncomeList ->
             copy(userIncomeList = userIncomeList)
         }
+
+        assetRepository.getSpendListFlow().setOnEach(scope) { userSpendingList ->
+            copy(userSpendingList = userSpendingList)
+        }
     }
 
     override fun onEvent(event: MainViewEvent) = when (event) {

@@ -14,6 +14,7 @@ import com.devnunu.ticle.presentation.home.components.SpendBoxView
 import com.devnunu.ticle.presentation.home.components.SummaryBoxView
 import com.devnunu.ticle.core.ui.theme.Purple20
 import com.devnunu.ticle.core.ui.theme.Purple40
+import com.devnunu.ticle.presentation.home.components.TotalSummaryBoxView
 
 @Composable
 fun MainScreen(
@@ -26,12 +27,17 @@ fun MainScreen(
             .padding(horizontal = 20.dp)
     ) {
         Spacer(modifier = Modifier.padding(20.dp))
+        TotalSummaryBoxView(
+            totalSummaryText = state.totalSummaryText,
+            onClick = {}
+        )
+        Spacer(modifier = Modifier.padding(10.dp))
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
             SummaryBoxView(
                 modifier = Modifier.weight(1f),
-                text = "총 수입",
+                text = "월 수입",
                 value = "${state.totalIncomeText} 원",
                 backgroundColor = Purple20,
                 onClick = {
@@ -41,8 +47,8 @@ fun MainScreen(
             Spacer(modifier = Modifier.padding(10.dp))
             SummaryBoxView(
                 modifier = Modifier.weight(1f),
-                text = "총 지출",
-                value = "0 원",
+                text = "월 지출",
+                value = "${state.totalSpendingText} 원",
                 backgroundColor = Purple40,
                 onClick = {
                     onEvent(MainViewEvent.OnClickSpendingBtn)

@@ -30,6 +30,7 @@
         <activity android:name=".presentation.income.IncomeActivity" />
         <activity android:name=".presentation.incomeinput.IncomeInputActivity" />
         <activity android:name=".presentation.spending.SpendingActivity" />
+        <activity android:name=".presentation.spendinginput.SpendingInputActivity" />
 
     </application>
 

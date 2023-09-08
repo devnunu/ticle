@@ -1,7 +1,7 @@
 package com.devnunu.ticle
 
 import android.app.Application
-import com.devnunu.ticle.di.assetModule
+import com.devnunu.ticle.data.asset.di.assetModule
 import com.devnunu.ticle.di.featureModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

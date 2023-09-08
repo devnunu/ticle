@@ -54,7 +54,7 @@ fun SpendScreen(
             ) {
                 Text(
                     modifier = Modifier.padding(bottom = 5.dp),
-                    text = "총 지출",
+                    text = "월 지출",
                     fontSize = 14.sp
                 )
                 Text(

@@ -1,40 +1,37 @@
-package com.devnunu.ticle.presentation.spending
+package com.devnunu.ticle.presentation.spendinginput
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.R
 import com.devnunu.ticle.core.base.BaseActivity
-import com.devnunu.ticle.presentation.spendinginput.SpendingInputActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SpendingActivity :
-    BaseActivity<SpendingState, SpendingSideEffect, SpendingViewEvent, SpendingViewModel>() {
+class SpendingInputActivity :
+    BaseActivity<SpendingInputState, SpendingInputSideEffect, SpendingInputViewEvent, SpendingInputViewModel>() {
 
-    override val viewModel: SpendingViewModel by viewModel()
+    override val viewModel: SpendingInputViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.right_in, R.anim.nothing)
         setContent {
-            SpendScreen(
+            SpendingInputScreen(
                 state = viewModel.state.collectAsState().value,
                 onEvent = viewModel::onEvent
             )
         }
     }
 
-    override fun handleSideEffect(sideEffect: SpendingSideEffect) {
+    override fun handleSideEffect(sideEffect: SpendingInputSideEffect) {
         super.handleSideEffect(sideEffect)
         when (sideEffect) {
-            SpendingSideEffect.GoBack -> {
+            is SpendingInputSideEffect.GoBack -> {
                 onBackPressed()
             }
 
-            SpendingSideEffect.StartSpendingInput -> {
-                val intent = Intent(this, SpendingInputActivity::class.java)
-                startActivity(intent)
+            is SpendingInputSideEffect.CompleteAddSpending -> {
+                finish()
             }
         }
     }
