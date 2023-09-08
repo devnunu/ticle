@@ -10,12 +10,12 @@ object DependencyInfo {
     }
 
     object Compose {
-        const val bom = "androidx.compose:compose-bom:2023.03.00"
+        const val bom = "androidx.compose:compose-bom:2023.06.01"
 
         const val ui = "androidx.compose.ui:ui"
         const val uiGraphics = "androidx.compose.ui:ui-graphics"
         const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
-        const val material3 = "androidx.compose.material3:material3"
+        const val material = "androidx.compose.material:material"
     }
 
     object Koin {

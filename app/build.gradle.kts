@@ -63,7 +63,7 @@ dependencies {
     implementation(DependencyInfo.Compose.ui)
     implementation(DependencyInfo.Compose.uiGraphics)
     implementation(DependencyInfo.Compose.uiToolingPreview)
-    implementation(DependencyInfo.Compose.material3)
+    implementation(DependencyInfo.Compose.material)
 
     implementation(DependencyInfo.Koin.core)
     implementation(DependencyInfo.Koin.android)

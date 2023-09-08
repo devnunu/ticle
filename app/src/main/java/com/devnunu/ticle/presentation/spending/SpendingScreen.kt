@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,10 +19,10 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.core.ui.components.AssetEmptyView
+import com.devnunu.ticle.core.ui.components.view.AssetEmptyView
 import com.devnunu.ticle.presentation.spending.components.SpendingItemView
-import com.devnunu.ticle.core.ui.components.TicleScaffold
-import com.devnunu.ticle.core.ui.components.TicleTopBar
+import com.devnunu.ticle.core.ui.components.scaffold.TicleScaffold
+import com.devnunu.ticle.core.ui.components.topbar.TicleTopBar
 import com.devnunu.ticle.core.ui.theme.gray99
 import com.devnunu.ticle.core.ui.theme.indigo40
 

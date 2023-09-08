@@ -13,10 +13,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.devnunu.ticle.core.ui.components.TicleButton
-import com.devnunu.ticle.core.ui.components.TicleInput
-import com.devnunu.ticle.core.ui.components.TicleScaffold
-import com.devnunu.ticle.core.ui.components.TicleTopBar
+import com.devnunu.ticle.core.ui.components.button.TicleButton
+import com.devnunu.ticle.core.ui.components.input.TicleInput
+import com.devnunu.ticle.core.ui.components.input.TicleSelectInput
+import com.devnunu.ticle.core.ui.components.bottomsheet.rememberScaffoldBottomSheetView
+import com.devnunu.ticle.core.ui.components.scaffold.TicleScaffold
+import com.devnunu.ticle.core.ui.components.topbar.TicleTopBar
+import com.devnunu.ticle.presentation.spendinginput.components.SpendingTypeBottomSheet
 
 @Composable
 fun SpendingInputScreen(
@@ -25,6 +28,9 @@ fun SpendingInputScreen(
 ) {
     var spendingName by remember { mutableStateOf("") }
     var spending by remember { mutableStateOf<Long?>(null) }
+    val spendingType = state.spendingType
+
+    val bottomSheetState = state.bottomSheetState
 
     TicleScaffold(
         topBar = {
@@ -33,7 +39,7 @@ fun SpendingInputScreen(
             )
         },
         bottomBar = {
-            val isBtnEnable = spendingName.isNotBlank() && spending != null
+            val isBtnEnable = spendingName.isNotBlank() && spending != null && spendingType != null
             TicleButton(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -45,6 +51,21 @@ fun SpendingInputScreen(
                     onEvent(SpendingInputViewEvent.OnClickCompleteBtn(spendingName, budget))
                 }
             )
+        },
+        bottomSheetView = rememberScaffoldBottomSheetView(
+            viewModelSheetState = bottomSheetState,
+            onCloseBottomSheet = { onEvent(SpendingInputViewEvent.OnCloseBottomSheet) }
+        ) {
+            when (bottomSheetState.tag) {
+                is SpendingInputBottomSheetTag.SpendingType -> {
+                    SpendingTypeBottomSheet(
+                        onClickItem = {
+                            onEvent(SpendingInputViewEvent.OnClickSpendingTypeBottomSheetItem(it))
+                        }
+                    )
+                }
+            }
+
         }
     ) { paddingValues ->
         Column(
@@ -56,8 +77,6 @@ fun SpendingInputScreen(
         ) {
             Column(
                 modifier = Modifier
-
-
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
             ) {
@@ -71,9 +90,8 @@ fun SpendingInputScreen(
                         spendingName = str
                     }
                 )
-                Spacer(modifier = Modifier.padding(10.dp))
                 TicleInput(
-                    modifier = Modifier.padding(top = 20.dp),
+                    modifier = Modifier.padding(top = 40.dp),
                     value = spending?.toString() ?: "",
                     label = "지출 금액",
                     placeholder = "지출 금액을 입력해주세요",
@@ -90,6 +108,13 @@ fun SpendingInputScreen(
                             }
                         }
                     }
+                )
+                TicleSelectInput(
+                    modifier = Modifier.padding(top = 40.dp),
+                    label = "지출 타입",
+                    value = spendingType?.displayName,
+                    placeholder = "지출 타입을 선택해주세요",
+                    onClickInput = { onEvent(SpendingInputViewEvent.OnClickSpendingTypeSelectInput) },
                 )
             }
             Spacer(modifier = Modifier.weight(1f))

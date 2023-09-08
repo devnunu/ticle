@@ -1,4 +1,4 @@
-package com.devnunu.ticle.core.ui.components
+package com.devnunu.ticle.core.ui.components.topbar
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
