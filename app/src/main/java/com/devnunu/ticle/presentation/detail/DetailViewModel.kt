@@ -1,6 +1,6 @@
 package com.devnunu.ticle.presentation.detail
 
-import com.devnunu.ticle.base.BaseViewModel
+import com.devnunu.ticle.core.base.BaseViewModel
 
 class DetailViewModel(
     initialState: DetailState = DetailState()

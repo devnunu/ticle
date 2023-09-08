@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.R
-import com.devnunu.ticle.base.BaseActivity
+import com.devnunu.ticle.core.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SpendingActivity :

@@ -1,12 +1,10 @@
 package com.devnunu.ticle.presentation.incomeinput
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.R
-import com.devnunu.ticle.base.BaseActivity
+import com.devnunu.ticle.core.base.BaseActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class IncomeInputActivity :

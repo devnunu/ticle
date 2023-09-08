@@ -1,4 +1,4 @@
-package com.devnunu.ticle.base
+package com.devnunu.ticle.core.base
 
 import androidx.lifecycle.ViewModel
 

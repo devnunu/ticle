@@ -3,11 +3,8 @@ package com.devnunu.ticle.presentation.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
-import com.devnunu.ticle.base.BaseActivity
-import com.devnunu.ticle.base.EmptyState
-import com.devnunu.ticle.presentation.detail.DetailActivity
+import com.devnunu.ticle.core.base.BaseActivity
 import com.devnunu.ticle.presentation.income.IncomeActivity
 import com.devnunu.ticle.presentation.spending.SpendingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel

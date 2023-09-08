@@ -1,16 +1,17 @@
+import com.devnunu.ticle.buildsrc.DependencyInfo
+import com.devnunu.ticle.buildsrc.configuration.configAndroidModule
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
 
+configAndroidModule(rootProject, enableCompose = true)
 android {
     namespace = "com.devnunu.ticle"
-    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.devnunu.ticle"
-        minSdk = 24
-        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -29,18 +30,11 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.4.8"
     }
     packaging {
         resources {
@@ -51,23 +45,24 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    implementation("androidx.activity:activity-compose:1.7.0")
+    implementation(project(":core:base"))
 
-    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    implementation(DependencyInfo.AndroidX.core)
+    implementation(DependencyInfo.AndroidX.appCompat)
+    implementation(DependencyInfo.AndroidX.lifecycleRuntimeKtx)
+    implementation(DependencyInfo.AndroidX.activityCompose)
 
-    implementation("io.insert-koin:koin-core:3.4.3")
-    implementation("io.insert-koin:koin-android:3.4.3")
+    implementation(platform(DependencyInfo.Compose.bom))
+    implementation(DependencyInfo.Compose.ui)
+    implementation(DependencyInfo.Compose.uiGraphics)
+    implementation(DependencyInfo.Compose.uiToolingPreview)
+    implementation(DependencyInfo.Compose.material3)
+
+    implementation(DependencyInfo.Koin.core)
+    implementation(DependencyInfo.Koin.android)
 
     implementation("org.orbit-mvi:orbit-core:6.0.0")
     implementation("org.orbit-mvi:orbit-viewmodel:6.0.0")
-
-    implementation("androidx.security:security-crypto:1.1.0-alpha01")
 
     // test
     testImplementation("junit:junit:4.13.2")

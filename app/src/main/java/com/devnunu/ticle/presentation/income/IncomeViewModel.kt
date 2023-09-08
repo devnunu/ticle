@@ -1,6 +1,6 @@
 package com.devnunu.ticle.presentation.income
 
-import com.devnunu.ticle.base.BaseViewModel
+import com.devnunu.ticle.core.base.BaseViewModel
 import com.devnunu.ticle.data.repository.AssetRepository
 import kotlinx.coroutines.CoroutineScope
 

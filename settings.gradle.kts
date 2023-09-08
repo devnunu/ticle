@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ticle"
 include(":app")
- 
+include(":core:base")
