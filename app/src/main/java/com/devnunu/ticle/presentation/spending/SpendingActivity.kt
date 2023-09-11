@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.R
 import com.devnunu.ticle.core.base.BaseActivity
+import com.devnunu.ticle.presentation.spendingdetail.SpendingDetailActivity
 import com.devnunu.ticle.presentation.spendinginput.SpendingInputActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,12 +29,18 @@ class SpendingActivity :
     override fun handleSideEffect(sideEffect: SpendingSideEffect) {
         super.handleSideEffect(sideEffect)
         when (sideEffect) {
-            SpendingSideEffect.GoBack -> {
+            is SpendingSideEffect.GoBack -> {
                 onBackPressed()
             }
 
-            SpendingSideEffect.StartSpendingInput -> {
+            is SpendingSideEffect.StartSpendingInput -> {
                 val intent = Intent(this, SpendingInputActivity::class.java)
+                startActivity(intent)
+            }
+
+            is SpendingSideEffect.StartSpendingDetail -> {
+                val intent = Intent(this, SpendingDetailActivity::class.java)
+                intent.putExtra(SpendingDetailActivity.EXTRA_SPENDING_ID, sideEffect.id)
                 startActivity(intent)
             }
         }

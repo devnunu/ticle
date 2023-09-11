@@ -107,7 +107,8 @@ fun SpendScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 10.dp),
-                            userSpending = it
+                            userSpending = it,
+                            onClick = { onEvent(SpendingViewEvent.OnClickSpendingItem(it.id)) }
                         )
                     }
                 }

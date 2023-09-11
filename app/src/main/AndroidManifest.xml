@@ -40,6 +40,9 @@
         <activity
             android:name=".presentation.spendinginput.SpendingInputActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.spendingdetail.SpendingDetailActivity"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

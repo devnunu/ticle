@@ -1,4 +1,4 @@
-package com.devnunu.ticle.presentation.incomedetail
+package com.devnunu.ticle.presentation.spendingdetail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,26 +26,23 @@ import com.devnunu.ticle.core.ui.components.scaffold.TicleScaffold
 import com.devnunu.ticle.core.ui.components.topbar.TicleTopBar
 import com.devnunu.ticle.core.ui.components.view.KeyValueView
 import com.devnunu.ticle.core.ui.theme.Bold18
-import com.devnunu.ticle.core.ui.theme.Medium14
-import com.devnunu.ticle.core.ui.theme.Medium18
 import com.devnunu.ticle.core.ui.theme.gray90
 import com.devnunu.ticle.core.ui.theme.indigo90
-import com.devnunu.ticle.model.asset.income.UserIncome
 
 @Composable
-fun IncomeDetailScreen(
-    state: IncomeDetailState,
-    onEvent: (IncomeDetailViewEvent) -> Unit
+fun SpendingDetailScreen(
+    state: SpendingDetailState,
+    onEvent: (SpendingDetailViewEvent) -> Unit
 ) {
-    val income = state.userIncome
+    val spending = state.userSpending
     DialogWrapper(dialogState = state.dialogState) { tag ->
         when (tag) {
-            IncomeDetailDialogTag.ItemDelete -> {
+            SpendingDetailDialogTag.ItemDelete -> {
                 TicleDialog(
                     title = "정말로 삭제하시겠습니까?",
                     positiveBtnText = "삭제",
                     negativeBtnText = "취소",
-                    onDialogEvent = { onEvent(IncomeDetailViewEvent.OnClickDeleteDialog(it)) }
+                    onDialogEvent = { onEvent(SpendingDetailViewEvent.OnClickDeleteDialog(it)) }
                 )
             }
         }
@@ -54,8 +51,8 @@ fun IncomeDetailScreen(
         topBar = {
             TicleTopBar(
                 rightText = "삭제",
-                onClickBackBtn = { onEvent(IncomeDetailViewEvent.OnClickBackPress) },
-                onClickRightText = { onEvent(IncomeDetailViewEvent.OnClickDeleteText) }
+                onClickBackBtn = { onEvent(SpendingDetailViewEvent.OnClickBackPress) },
+                onClickRightText = { onEvent(SpendingDetailViewEvent.OnClickDeleteText) }
             )
         }
     ) { paddingValues ->
@@ -84,7 +81,7 @@ fun IncomeDetailScreen(
                 )
                 Text(
                     style = Bold18,
-                    text = income?.name.orEmpty()
+                    text = spending?.name.orEmpty()
                 )
             }
             Divider(
@@ -94,7 +91,7 @@ fun IncomeDetailScreen(
             )
             KeyValueView(
                 key = "금액",
-                value = "${income?.formattedValueText} 원"
+                value = "${spending?.formattedValueText} 원"
             )
         }
     }
@@ -102,11 +99,9 @@ fun IncomeDetailScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun IncomeDetailScreenPreview() {
-    IncomeDetailScreen(
-        state = IncomeDetailState(
-            userIncome = UserIncome(id = 0, name = "월급", value = 30000)
-        ),
-        onEvent = {},
+fun SpendingDetailScreenPreview() {
+    SpendingDetailScreen(
+        state = SpendingDetailState(),
+        onEvent = {}
     )
 }

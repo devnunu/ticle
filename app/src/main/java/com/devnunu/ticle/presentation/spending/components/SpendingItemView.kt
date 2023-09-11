@@ -10,11 +10,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
+import com.devnunu.ticle.core.ui.ext.clickableRipple
 import com.devnunu.ticle.model.asset.spending.UserSpending
 import com.devnunu.ticle.core.ui.theme.indigo90
 import com.devnunu.ticle.core.ui.theme.white
@@ -22,11 +24,14 @@ import com.devnunu.ticle.core.ui.theme.white
 @Composable
 fun SpendingItemView(
     modifier: Modifier = Modifier,
-    userSpending: UserSpending
+    userSpending: UserSpending,
+    onClick: () -> Unit
 ) {
     Column(
         modifier = modifier
             .background(white, RoundedCornerShape(10.dp))
+            .clip(RoundedCornerShape(10.dp))
+            .clickableRipple(bounded = true) { onClick() }
             .padding(horizontal = 15.dp, vertical = 20.dp)
     ) {
         Row {

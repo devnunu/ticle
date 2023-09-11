@@ -19,12 +19,16 @@ class SpendingViewModel(
     override fun onEvent(event: SpendingViewEvent) {
         super.onEvent(event)
         when (event) {
-            SpendingViewEvent.OnClickBackPress -> {
+            is SpendingViewEvent.OnClickBackPress -> {
                 postSideEffect(SpendingSideEffect.GoBack)
             }
 
-            SpendingViewEvent.OnClickAddSpendingIcon -> {
+            is SpendingViewEvent.OnClickAddSpendingIcon -> {
                 postSideEffect(SpendingSideEffect.StartSpendingInput)
+            }
+
+            is SpendingViewEvent.OnClickSpendingItem -> {
+                postSideEffect(SpendingSideEffect.StartSpendingDetail(event.id))
             }
         }
     }
