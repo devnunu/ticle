@@ -1,7 +1,7 @@
 package com.devnunu.ticle.presentation.spending
 
-import com.devnunu.ticle.model.asset.UserSpending
-import com.devnunu.ticle.model.asset.getTotalSpending
+import com.devnunu.ticle.model.asset.spending.UserSpending
+import com.devnunu.ticle.model.asset.spending.getTotalSpending
 import com.devnunu.ticle.util.NumberFormatUtil
 
 sealed class SpendingViewEvent {

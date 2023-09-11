@@ -19,12 +19,15 @@ class IncomeViewModel(
     override fun onEvent(event: IncomeViewEvent) {
         super.onEvent(event)
         when (event) {
-            IncomeViewEvent.OnClickBackPress -> {
+            is IncomeViewEvent.OnClickBackPress -> {
                 postSideEffect(IncomeSideEffect.GoBack)
             }
 
-            IncomeViewEvent.OnClickAddIncomeIcon -> {
+            is IncomeViewEvent.OnClickAddIncomeIcon -> {
                 postSideEffect(IncomeSideEffect.StartIncomeInput)
+            }
+            is IncomeViewEvent.OnClickIncomeItemView-> {
+                postSideEffect(IncomeSideEffect.StartIncomeDetail(event.id))
             }
         }
     }

@@ -14,6 +14,7 @@ object DependencyInfo {
 
         const val ui = "androidx.compose.ui:ui"
         const val uiGraphics = "androidx.compose.ui:ui-graphics"
+        const val uiTooling = "androidx.compose.ui:ui-tooling"
         const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
         const val material = "androidx.compose.material:material"
     }

@@ -15,6 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,6 +36,7 @@ fun TicleInput(
     value: String,
     label: String,
     placeholder: String,
+    focusRequester: FocusRequester? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     onChangeInputText: (String) -> Unit,
     unitText: String? = null
@@ -49,8 +52,9 @@ fun TicleInput(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
+            val inputModifier = if (focusRequester != null) Modifier.focusRequester(focusRequester) else Modifier
             BasicTextField(
-                modifier = Modifier
+                modifier = inputModifier
                     .weight(1f)
                     .padding(bottom = 5.dp),
                 textStyle = Regular22,

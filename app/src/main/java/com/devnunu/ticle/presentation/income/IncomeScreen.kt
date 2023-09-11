@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.model.asset.UserIncome
+import com.devnunu.ticle.model.asset.income.UserIncome
 import com.devnunu.ticle.core.ui.components.view.AssetEmptyView
 import com.devnunu.ticle.presentation.income.components.IncomeItemView
 import com.devnunu.ticle.core.ui.components.scaffold.TicleScaffold
@@ -104,12 +104,13 @@ fun IncomeScreen(
                     )
                 } else {
                     Spacer(modifier = Modifier.padding(10.dp))
-                    userIncomeList.forEach {
+                    userIncomeList.forEach { userIncome ->
                         IncomeItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(bottom = 10.dp),
-                            userIncome = it
+                            userIncome = userIncome,
+                            onClick = { onEvent(IncomeViewEvent.OnClickIncomeItemView(userIncome.id)) }
                         )
                     }
                 }
@@ -133,7 +134,7 @@ fun IncomeScreenPreview2() {
     IncomeScreen(
         state = IncomeState(
             userIncomeList = listOf(
-                UserIncome("수입", 100000)
+                UserIncome(0, "수입", 100000)
             )
         ),
         onEvent = {}

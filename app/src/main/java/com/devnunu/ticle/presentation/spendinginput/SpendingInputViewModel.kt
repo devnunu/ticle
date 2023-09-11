@@ -2,7 +2,7 @@ package com.devnunu.ticle.presentation.spendinginput
 
 import com.devnunu.ticle.core.base.BaseViewModel
 import com.devnunu.ticle.data.asset.repository.AssetRepository
-import com.devnunu.ticle.model.asset.UserSpending
+import com.devnunu.ticle.model.asset.spending.UserSpending
 
 class SpendingInputViewModel(
     private val assetRepository: AssetRepository,

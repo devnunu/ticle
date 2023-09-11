@@ -3,6 +3,7 @@ package com.devnunu.ticle.di
 import com.devnunu.ticle.presentation.detail.DetailViewModel
 import com.devnunu.ticle.presentation.home.MainViewModel
 import com.devnunu.ticle.presentation.income.IncomeViewModel
+import com.devnunu.ticle.presentation.incomedetail.IncomeDetailViewModel
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputViewModel
 import com.devnunu.ticle.presentation.spending.SpendingViewModel
 import com.devnunu.ticle.presentation.spendinginput.SpendingInputViewModel
@@ -18,6 +19,8 @@ val featureModule = module {
     viewModel { IncomeViewModel(get()) }
 
     viewModel { IncomeInputViewModel(get()) }
+
+    viewModel { IncomeDetailViewModel(get()) }
 
     viewModel { SpendingViewModel(get()) }
 

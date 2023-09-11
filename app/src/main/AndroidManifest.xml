@@ -32,6 +32,9 @@
         <activity
             android:name=".presentation.incomeinput.IncomeInputActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".presentation.incomedetail.IncomeDetailActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".presentation.spending.SpendingActivity" />
         <activity

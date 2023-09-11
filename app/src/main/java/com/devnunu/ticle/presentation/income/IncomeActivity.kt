@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.R
 import com.devnunu.ticle.core.base.BaseActivity
+import com.devnunu.ticle.presentation.incomedetail.IncomeDetailActivity
 import com.devnunu.ticle.presentation.incomeinput.IncomeInputActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -28,12 +29,17 @@ class IncomeActivity :
     override fun handleSideEffect(sideEffect: IncomeSideEffect) {
         super.handleSideEffect(sideEffect)
         when (sideEffect) {
-            IncomeSideEffect.GoBack -> {
+            is IncomeSideEffect.GoBack -> {
                 onBackPressed()
             }
 
-            IncomeSideEffect.StartIncomeInput -> {
+            is IncomeSideEffect.StartIncomeInput -> {
                 val intent = Intent(this, IncomeInputActivity::class.java)
+                startActivity(intent)
+            }
+            is IncomeSideEffect.StartIncomeDetail-> {
+                val intent = Intent(this, IncomeDetailActivity::class.java)
+                intent.putExtra(IncomeDetailActivity.EXTRA_INCOME_ID, sideEffect.id)
                 startActivity(intent)
             }
         }

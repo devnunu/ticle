@@ -20,6 +20,7 @@ dependencies {
     implementation(platform(DependencyInfo.Compose.bom))
     implementation(DependencyInfo.Compose.ui)
     implementation(DependencyInfo.Compose.uiGraphics)
+    debugImplementation(DependencyInfo.Compose.uiTooling)
     implementation(DependencyInfo.Compose.uiToolingPreview)
     implementation(DependencyInfo.Compose.material)
 

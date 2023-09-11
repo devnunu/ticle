@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.devnunu.ticle.R
-import com.devnunu.ticle.model.asset.UserSpending
+import com.devnunu.ticle.model.asset.spending.UserSpending
 import com.devnunu.ticle.core.ui.theme.indigo90
 import com.devnunu.ticle.core.ui.theme.white
 

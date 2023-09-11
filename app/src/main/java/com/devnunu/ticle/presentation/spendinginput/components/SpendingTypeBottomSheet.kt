@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.devnunu.ticle.core.ui.ext.clickableRipple
 import com.devnunu.ticle.core.ui.theme.Regular14
-import com.devnunu.ticle.model.asset.SpendingType
+import com.devnunu.ticle.model.asset.spending.SpendingType
 
 @Composable
 fun SpendingTypeBottomSheet(

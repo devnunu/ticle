@@ -1,7 +1,7 @@
 package com.devnunu.ticle.presentation.spendinginput
 
 import com.devnunu.ticle.core.ui.components.bottomsheet.ModalState
-import com.devnunu.ticle.model.asset.SpendingType
+import com.devnunu.ticle.model.asset.spending.SpendingType
 
 
 sealed class SpendingInputViewEvent {
