@@ -31,6 +31,4 @@ data class SpendingInputState(
     val spendingType: SpendingType? = null,
     val bottomSheetState: ModalState<SpendingInputBottomSheetTag> =
         ModalState.Closed(SpendingInputBottomSheetTag.SpendingType)
-) {
-
-}
+)

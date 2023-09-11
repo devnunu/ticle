@@ -2,6 +2,7 @@ package com.devnunu.ticle.presentation.spendinginput
 
 import com.devnunu.ticle.core.base.BaseViewModel
 import com.devnunu.ticle.data.asset.repository.AssetRepository
+import com.devnunu.ticle.model.asset.spending.SpendingType
 import com.devnunu.ticle.model.asset.spending.UserSpending
 
 class SpendingInputViewModel(
@@ -17,7 +18,8 @@ class SpendingInputViewModel(
             }
 
             is SpendingInputViewEvent.OnClickCompleteBtn -> {
-                val userSpending = getUserSpending(event.spendingName, event.spending)
+                val spendingType = state.value.spendingType ?: return
+                val userSpending = getUserSpending(event.spendingName, spendingType, event.spending)
                 assetRepository.addSpend(userSpending)
                 postSideEffect(SpendingInputSideEffect.CompleteAddSpending)
             }
@@ -37,8 +39,8 @@ class SpendingInputViewModel(
         }
     }
 
-    private fun getUserSpending(spendingName: String, spending: Long) =
-        UserSpending(name = spendingName, value = spending)
+    private fun getUserSpending(spendingName: String, spendingType: SpendingType, spending: Long) =
+        UserSpending(name = spendingName, type = spendingType, value = spending)
 
     /**
      * BottomSheet

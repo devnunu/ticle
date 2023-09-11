@@ -29,5 +29,13 @@ fun SpendingTypeBottomSheet(
             style = Regular14,
             text = SpendingType.FIXED.displayName,
         )
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickableRipple(bounded = true) { onClickItem(SpendingType.LOAN) }
+                .padding(horizontal = 15.dp, vertical = 20.dp),
+            style = Regular14,
+            text = SpendingType.LOAN.displayName,
+        )
     }
 }

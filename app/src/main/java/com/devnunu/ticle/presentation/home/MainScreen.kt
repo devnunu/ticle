@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,10 @@ import com.devnunu.ticle.core.ui.theme.Purple40
 import com.devnunu.ticle.core.ui.theme.Regular15
 import com.devnunu.ticle.core.ui.theme.gray70
 import com.devnunu.ticle.core.ui.theme.gray90
+import com.devnunu.ticle.model.asset.spending.SpendingType
+import com.devnunu.ticle.model.asset.spending.getTotalSpending
 import com.devnunu.ticle.presentation.home.components.SpareMoneyBanner
+import com.devnunu.ticle.util.NumberFormatUtil
 
 @Composable
 fun MainScreen(
@@ -31,6 +36,7 @@ fun MainScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
     ) {
         Spacer(modifier = Modifier.padding(20.dp))
@@ -86,10 +92,14 @@ fun MainScreen(
         )
         TotalSpendingBanner(
             modifier = Modifier.padding(bottom = 20.dp),
-            label = "고정지출"
+            label = "고정지출",
+            spendingList = state.userSpendingList.filter { it.type == SpendingType.FIXED },
+            value= state.userSpendingList.getTotalSpending(SpendingType.FIXED)
         )
         TotalSpendingBanner(
-            label = "대출"
+            label = "대출",
+            spendingList = state.userSpendingList.filter { it.type == SpendingType.LOAN },
+            value= state.userSpendingList.getTotalSpending(SpendingType.LOAN)
         )
     }
 }
