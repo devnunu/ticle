@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.detail.DetailActivity" />
+        <activity android:name=".presentation.invest.InvestActivity" />
 
         <activity android:name=".presentation.income.IncomeActivity" />
         <activity

@@ -20,7 +20,10 @@ object NumberFormatUtil {
         }
         if (remainValue >= 10000) {
             result += "${toCurrencyFormText(remainValue / 10000)}만 "
-            remainValue -= 10000
+            remainValue -= remainValue / 10000 * 10000
+        }
+        if (remainValue >= 1) {
+            result += "$remainValue"
         }
         return if (addUnit) "${result.trim()}원" else result.trim()
     }

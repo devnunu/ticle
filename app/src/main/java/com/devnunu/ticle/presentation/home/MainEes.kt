@@ -7,14 +7,16 @@ import com.devnunu.ticle.model.asset.spending.getTotalSpending
 import com.devnunu.ticle.util.NumberFormatUtil
 
 sealed class MainViewEvent {
-    object OnClickIncomeBtn : MainViewEvent()
-    object OnClickSpendingBtn : MainViewEvent()
+    object OnClickIncomeBanner : MainViewEvent()
+    object OnClickSpendingBanner : MainViewEvent()
+    object OnClickInvestBanner : MainViewEvent()
 
 }
 
 sealed class MainSideEffect {
     object StartIncomeActivity : MainSideEffect()
     object StartSpendingActivity : MainSideEffect()
+    object StartInvestActivity : MainSideEffect()
 }
 
 data class MainState(

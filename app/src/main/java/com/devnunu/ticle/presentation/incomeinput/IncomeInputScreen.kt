@@ -86,7 +86,7 @@ fun IncomeInputScreen(
                     value = budget?.toString() ?: "",
                     label = "수입 금액",
                     placeholder = "수입 금액을 입력해주세요",
-                    unitText = "만원",
+                    unitText = "원",
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     onChangeInputText = { str ->
                         if (str.isEmpty()) {

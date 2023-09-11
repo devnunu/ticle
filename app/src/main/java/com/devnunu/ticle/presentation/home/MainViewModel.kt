@@ -20,11 +20,14 @@ class MainViewModel(
     }
 
     override fun onEvent(event: MainViewEvent) = when (event) {
-        is MainViewEvent.OnClickIncomeBtn -> {
+        is MainViewEvent.OnClickIncomeBanner -> {
             postSideEffect(MainSideEffect.StartIncomeActivity)
         }
-        is MainViewEvent.OnClickSpendingBtn-> {
+        is MainViewEvent.OnClickSpendingBanner-> {
             postSideEffect(MainSideEffect.StartSpendingActivity)
+        }
+        is MainViewEvent.OnClickInvestBanner -> {
+            postSideEffect(MainSideEffect.StartInvestActivity)
         }
     }
 }

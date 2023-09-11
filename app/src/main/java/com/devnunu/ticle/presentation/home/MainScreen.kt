@@ -52,7 +52,7 @@ fun MainScreen(
         Spacer(modifier = Modifier.padding(6.dp))
         SpareMoneyBanner(
             totalSummaryText = state.totalSummaryText,
-            onClick = {}
+            onClick = { onEvent(MainViewEvent.OnClickInvestBanner) }
         )
         Spacer(modifier = Modifier.padding(6.dp))
         Row(
@@ -64,7 +64,7 @@ fun MainScreen(
                 value = "${state.totalIncomeText} 원",
                 backgroundColor = Purple20,
                 onClick = {
-                    onEvent(MainViewEvent.OnClickIncomeBtn)
+                    onEvent(MainViewEvent.OnClickIncomeBanner)
                 }
             )
             Spacer(modifier = Modifier.padding(6.dp))
@@ -74,7 +74,7 @@ fun MainScreen(
                 value = "${state.totalSpendingText} 원",
                 backgroundColor = Purple40,
                 onClick = {
-                    onEvent(MainViewEvent.OnClickSpendingBtn)
+                    onEvent(MainViewEvent.OnClickSpendingBanner)
                 }
             )
         }
@@ -85,7 +85,11 @@ fun MainScreen(
             color = gray90
         )
         TotalSpendingBanner(
+            modifier = Modifier.padding(bottom = 20.dp),
             label = "고정지출"
+        )
+        TotalSpendingBanner(
+            label = "대출"
         )
     }
 }

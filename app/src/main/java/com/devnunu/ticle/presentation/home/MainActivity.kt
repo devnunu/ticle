@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import com.devnunu.ticle.core.base.BaseActivity
 import com.devnunu.ticle.presentation.income.IncomeActivity
+import com.devnunu.ticle.presentation.invest.InvestActivity
 import com.devnunu.ticle.presentation.spending.SpendingActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -32,6 +33,10 @@ class MainActivity
             }
             is MainSideEffect.StartSpendingActivity -> {
                 val intent = Intent(this, SpendingActivity::class.java)
+                startActivity(intent)
+            }
+            is MainSideEffect.StartInvestActivity -> {
+                val intent = Intent(this, InvestActivity::class.java)
                 startActivity(intent)
             }
         }
