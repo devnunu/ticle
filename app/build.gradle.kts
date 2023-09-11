@@ -68,9 +68,6 @@ dependencies {
     implementation(DependencyInfo.Koin.core)
     implementation(DependencyInfo.Koin.android)
 
-    implementation("org.orbit-mvi:orbit-core:6.0.0")
-    implementation("org.orbit-mvi:orbit-viewmodel:6.0.0")
-
     // test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
